@@ -2,9 +2,23 @@
 <html>
 <head>
     <title>Shop SwimTayka</title>
+    <script>
+        function updateIframeSrc() {
+            // Get the current URL
+            const currentUrl = window.location.href;
+            // Extract the query string and path
+            const queryString = window.location.search;
+            const path = window.location.pathname;
+
+            // Construct the new URL for the iframe
+            const newIframeUrl = `https://tailoredforyou.co.uk/product-category/swim-tayka/${path}${queryString}`;
+
+            // Set the iframe's src attribute to the new URL
+            document.getElementById('productIframe').src = newIframeUrl;
+        }
+    </script>
 </head>
-<body>
-    <iframe src="https://tailoredforyou.co.uk/product-category/swim-tayka/" style="width:100%; height:100vh; border:none;">
-    </iframe>
+<body onload="updateIframeSrc()">
+    <iframe id="productIframe" style="width:100%; height:100vh; border:none;"></iframe>
 </body>
 </html>
